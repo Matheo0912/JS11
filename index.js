@@ -8,13 +8,15 @@ document.getElementById("find").addEventListener("click", function () {
         .then(data => {
             let found = false;
             data.characters.forEach(element => {
-                console.log(element);
 
                 if (element.name.toLowerCase().includes(bilde)) {
                     document.getElementById("output").src = element.images[0];
                     document.getElementById("output1").innerHTML = element.personal.birthdate;
                     document.getElementById("output2").innerHTML = element.uniqueTraits[0];
                     found = true;
+                }
+                if (element.uniqueTraits == false) {
+                     document.getElementById("output2").innerHTML = "";
                 }
             });
             
